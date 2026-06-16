@@ -98,3 +98,12 @@ function g({ items }) {
     `var _reactJsxRuntime = require("react/jsx-runtime"); function g({ items }) { return /* @__PURE__ */ _reactJsxRuntime.jsx("div", { children: [ /* istanbul ignore start -- @preserve */ items && /* @__PURE__ */ _reactJsxRuntime.jsx(Item, {}), /* istanbul ignore stop -- @preserve */ ] }) }`
   );
 });
+
+test("keeps ignore comments in template literals", async () => {
+  assert.equal(
+    await t(
+      "const foo = `${/* istanbul ignore next -- @preserve */ () => undefined}`"
+    ),
+    "const foo = `${/* istanbul ignore next -- @preserve */ () => undefined}`;"
+  );
+});
