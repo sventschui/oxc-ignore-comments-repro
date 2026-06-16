@@ -3,6 +3,6 @@
   "type": "module",
   "packageManager": "yarn@4.17.0",
   "devDependencies": {
-    "oxc-transform": "0.135.0"
+    "oxc-transform": "0.136.0"
   }
 }
